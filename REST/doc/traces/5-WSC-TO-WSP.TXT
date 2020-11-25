@@ -1,0 +1,4 @@
+Address: https://localhost:8443/api/hello?name=John
+Headers: {Accept=[text/plain, application/json, application/*+json, */*], Authorization=[Holder-of-key 5efec7fc-31a9-4492-958b-e1af135b3b2b], Content-Type=[text/plain;charset=ISO-8859-1], Content-Length=[0]}
+Payload: 
+

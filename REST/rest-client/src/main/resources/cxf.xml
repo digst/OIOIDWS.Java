@@ -1,0 +1,46 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cxf="http://cxf.apache.org/core"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+        http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<cxf:bus>
+		<cxf:features>
+			<cxf:logging />
+		</cxf:features>
+	</cxf:bus>
+
+	<bean class="client.sts.DigstSTSClient">
+		<constructor-arg ref="cxf" />
+
+		<property name="wsdlLocation" value="src/main/resources/sts.wsdl" />
+		<property name="serviceName" value="{http://docs.oasis-open.org/ws-sx/ws-trust/200512/}SecurityTokenService" />
+		<property name="endpointName" value="{http://docs.oasis-open.org/ws-sx/ws-trust/200512/}STS_Port" />
+		<property name="sendRenewing" value="false" />
+		<property name="sendKeyType" value="false" />
+		<property name="requiresEntropy" value="false" />
+		<property name="tokenType" value="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" />
+
+		<property name="properties">
+			<map>
+				<!-- this is used to sign the request to the STS -->
+				<entry key="ws-security.signature.username" value="java ref. test (funktionscertifikat)" />
+				<entry key="ws-security.signature.properties" value="client.properties" />
+				<entry key="ws-security.asymmetric.signature.algorithm" value="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+
+				<entry key="ws-security.sts.token.username" value="java ref. test (funktionscertifikat)" />
+				<entry key="ws-security.sts.token.properties" value="client.properties" />
+				<entry key="ws-security.callback-handler" value="client.callback.ClientCallbackHandler" />
+
+				<!-- this is used to verify the signature on the response from the STS -->
+				<entry key="ws-security.encryption.username" value="sts" />
+				<entry key="ws-security.encryption.properties" value="sts.properties" />
+
+				<!-- the response from the STS is not BSP 1.1 compliant (missing c14n transform in the signature) -->
+				<entry key="ws-security.is-bsp-compliant" value="false" />
+			</map>
+		</property>
+	</bean>
+</beans>

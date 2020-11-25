@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>dk.digst.cxf</groupId>
+		<artifactId>cxf-reference</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>cxf-reference-oioidws</artifactId>
+	<packaging>pom</packaging>
+	<name>OIOIDWS Parent</name>
+
+	<modules>
+		<module>service-hok</module>
+		<module>service-bearer</module>
+		<module>system-user-scenario</module>
+		<module>bootstrap-scenario</module>
+		<module>signature-scenario</module>
+	</modules>
+</project>
