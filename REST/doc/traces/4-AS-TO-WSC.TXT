@@ -1,0 +1,4 @@
+ResponseCode: 200
+Headers: {Server=[Apache-Coyote/1.1], Pragma=[no-cache], Cache-Control=[no-store], Content-Type=[application/json;charset=UTF-8], Transfer-Encoding=[chunked], Date=[Thu, 03 Dec 2015 16:17:53 GMT]}
+Payload: {"access_token":"5efec7fc-31a9-4492-958b-e1af135b3b2b","token_type":"Holder-of-key","expires_in":3600}
+
