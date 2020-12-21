@@ -3,3 +3,7 @@ target/
 .classpath
 .settings/
 .DS_Store
+
+## JetBrains IntelliJ
+*.iml
+.idea/
