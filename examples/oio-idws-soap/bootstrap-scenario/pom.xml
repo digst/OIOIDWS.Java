@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>dk.digst.cxf</groupId>
-		<artifactId>cxf-reference-oioidws</artifactId>
+		<groupId>dk.gov.oio.idws</groupId>
+		<artifactId>reference-soap-parent</artifactId>
 		<version>1.0.0</version>
 	</parent>
 	<packaging>war</packaging>
@@ -83,7 +83,7 @@
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-ws-security</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
