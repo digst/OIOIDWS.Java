@@ -1,10 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>dk.gov.oio.idws</groupId>
 	<artifactId>reference-examples-parent</artifactId>
 	<packaging>pom</packaging>
-	<name>LSBS and OIO IDWS Parent</name>
+	<name>LSBS and OIO IDWS Examples Parent</name>
 	<version>1.0.0</version>
+
+	<parent>
+		<groupId>dk.gov.oio.idws</groupId>
+		<artifactId>reference-parent</artifactId>
+		<version>1.0.0</version>
+	</parent>
 
 	<properties>
 		<cxf.version>3.0.16</cxf.version>

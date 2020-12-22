@@ -7,7 +7,7 @@
 	</parent>
 	<artifactId>reference-soap-parent</artifactId>
 	<packaging>pom</packaging>
-	<name>OIO IDWS SOAP Parent</name>
+	<name>OIO IDWS SOAP Examples Parent</name>
 
 	<modules>
 		<module>service-hok</module>

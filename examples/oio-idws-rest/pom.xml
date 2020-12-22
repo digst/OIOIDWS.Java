@@ -3,7 +3,7 @@
 	<groupId>dk.gov.oio.idws</groupId>
 	<artifactId>reference-rest-parent</artifactId>
 	<version>1.0.0</version>
-	<name>OIO IDWS REST Parent</name>
+	<name>OIO IDWS REST Examples Parent</name>
 	<packaging>pom</packaging>
 
   <parent>

@@ -7,7 +7,7 @@
 	</parent>
 	<artifactId>reference-lbsb-parent</artifactId>
 	<packaging>pom</packaging>
-	<name>LBSB Parent</name>
+	<name>LBSB Examples Parent</name>
 	<version>1.0.0</version>
 
 	<modules>
