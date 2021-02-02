@@ -16,6 +16,8 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:cxf.xml"})
 public class SignatureScenarioTest {
@@ -40,20 +42,16 @@ public class SignatureScenarioTest {
         // set the keystore on the custom Merlin class
         UserCertificateStore.setKs(keystore);
 
-        //Act
-        // first call will also call the STS
+        //Act and assert
         String response = port.helloWorld("John");
+        assertEquals("Hello John", response);
 
-        // second call will reuse the cached token we got from the first call
-        //hello("Jane");
-
-        //Assert
+        response = port.helloWorld("Jane");
+        assertEquals("Hello Jane", response);
     }
 
     private KeyStore getKeystore() throws KeyStoreException, IOException, CertificateException, NoSuchAlgorithmException {
-        KeyStore ks = null;
-
-        ks = KeyStore.getInstance("PKCS12");
+        KeyStore ks = KeyStore.getInstance("PKCS12");
         ks.load(new FileInputStream("src/main/resources/client.pfx"), "Test1234".toCharArray());
 
         return ks;
