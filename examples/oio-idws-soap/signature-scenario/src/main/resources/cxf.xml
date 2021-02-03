@@ -21,12 +21,12 @@
 		</cxf:features>
 	</cxf:bus>
 
-	<bean id="applicationContextProvider" class="client.spring.ApplicationContextProvider" />
+	<bean id="applicationContextProvider" class="signature.client.spring.ApplicationContextProvider" />
 
-	<bean id="stsClient" class="client.sts.DigstSTSClient">
+	<bean id="stsClient" class="signature.client.sts.DigstSTSClient">
 		<constructor-arg ref="cxf" />
 
-		<property name="wsdlLocation" value="src/main/resources/sts.wsdl" />
+		<property name="wsdlLocation" value="sts.wsdl" />
 		<property name="serviceName" value="{http://docs.oasis-open.org/ws-sx/ws-trust/200512/}SecurityTokenService" />
 		<property name="endpointName" value="{http://docs.oasis-open.org/ws-sx/ws-trust/200512/}STS_Port" />
 		<property name="sendRenewing" value="false" />
@@ -50,7 +50,7 @@
 			<entry key="ws-security.sts.applies-to" value="https://wsp.itcrew.dk" />
 			<entry key="ws-security.signature.username" value="java ref. test (funktionscertifikat)" />
 			<entry key="ws-security.signature.properties" value="client.properties" />
-			<entry key="ws-security.callback-handler" value="client.callback.ClientCallbackHandler" />
+			<entry key="ws-security.callback-handler" value="signature.client.callback.ClientCallbackHandler" />
 			<entry key="ws-security.asymmetric.signature.algorithm" value="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
 
 			<!-- the response from the STS is not BSP 1.1 compliant (missing c14n transform in the signature) -->

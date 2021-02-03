@@ -1,4 +1,4 @@
-package client.crypto;
+package signature.client.crypto;
 
 import java.io.IOException;
 import java.security.KeyStore;

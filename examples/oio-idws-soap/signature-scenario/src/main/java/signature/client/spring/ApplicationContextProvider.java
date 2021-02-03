@@ -1,4 +1,4 @@
-package client.spring;
+package signature.client.spring;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

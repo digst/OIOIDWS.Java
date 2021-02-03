@@ -1,4 +1,4 @@
-package client.ui;
+package signature.client.ui;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

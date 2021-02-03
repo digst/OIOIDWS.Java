@@ -1,4 +1,4 @@
-package client.callback;
+package signature.client.callback;
 
 import java.io.IOException;
 import javax.security.auth.callback.Callback;

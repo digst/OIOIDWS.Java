@@ -1,7 +1,9 @@
-import client.callback.ClientCallbackHandler;
-import client.crypto.UserCertificateStore;
-import client.spring.ApplicationContextProvider;
-import client.sts.DigstSTSClient;
+package soap.signature;
+
+import signature.client.callback.ClientCallbackHandler;
+import signature.client.crypto.UserCertificateStore;
+import signature.client.spring.ApplicationContextProvider;
+import signature.client.sts.DigstSTSClient;
 import org.example.contract.helloworld.HelloWorldPortType;
 import org.example.contract.helloworld.HelloWorldService;
 import org.junit.Test;
@@ -19,13 +21,13 @@ import java.security.cert.CertificateException;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:cxf.xml"})
+@ContextConfiguration(locations = {"file:../../examples/oio-idws-soap/signature-scenario/src/main/resources/cxf.xml"})
 public class SignatureScenarioTest {
 
     @Test
     public void testSignatureScenario() throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
         //Arrange
-        System.setProperty("javax.net.ssl.trustStore", "src/main/resources/ssl-trust.jks");
+        System.setProperty("javax.net.ssl.trustStore", "src/test/resources/ssl-trust.jks");
         System.setProperty("javax.net.ssl.trustStorePassword", "Test1234");
 
         KeyStore keystore = getKeystore();
@@ -52,7 +54,8 @@ public class SignatureScenarioTest {
 
     private KeyStore getKeystore() throws KeyStoreException, IOException, CertificateException, NoSuchAlgorithmException {
         KeyStore ks = KeyStore.getInstance("PKCS12");
-        ks.load(new FileInputStream("src/main/resources/client.pfx"), "Test1234".toCharArray());
+        //ks.load(new FileInputStream("src/test/resources/client.pfx"), "Test1234".toCharArray());
+        ks.load(this.getClass().getClassLoader().getResourceAsStream("client.pfx"), "Test1234".toCharArray());
 
         return ks;
     }

@@ -1,4 +1,4 @@
-package client.sts;
+package signature.client.sts;
 
 import java.util.UUID;
 
@@ -9,7 +9,7 @@ import org.apache.cxf.Bus;
 import org.apache.cxf.ws.security.SecurityConstants;
 import org.apache.cxf.ws.security.trust.STSClient;
 
-import client.interceptor.STSAddressingInterceptor;
+import signature.client.interceptor.STSAddressingInterceptor;
 
 public class DigstSTSClient extends STSClient {
 

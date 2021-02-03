@@ -1,4 +1,4 @@
-package client.ui;
+package signature.client.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,10 +8,10 @@ import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 
-import client.callback.ClientCallbackHandler;
-import client.crypto.UserCertificateStore;
-import client.spring.ApplicationContextProvider;
-import client.sts.DigstSTSClient;
+import signature.client.callback.ClientCallbackHandler;
+import signature.client.crypto.UserCertificateStore;
+import signature.client.spring.ApplicationContextProvider;
+import signature.client.sts.DigstSTSClient;
 
 public class RunButtonHandler implements ActionListener {
 	private UI ui;

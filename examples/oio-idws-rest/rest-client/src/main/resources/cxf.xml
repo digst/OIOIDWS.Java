@@ -15,7 +15,7 @@
 	<bean class="client.sts.DigstSTSClient">
 		<constructor-arg ref="cxf" />
 
-		<property name="wsdlLocation" value="src/main/resources/sts.wsdl" />
+		<property name="wsdlLocation" value="sts.wsdl" />
 		<property name="serviceName" value="{http://docs.oasis-open.org/ws-sx/ws-trust/200512/}SecurityTokenService" />
 		<property name="endpointName" value="{http://docs.oasis-open.org/ws-sx/ws-trust/200512/}STS_Port" />
 		<property name="sendRenewing" value="false" />

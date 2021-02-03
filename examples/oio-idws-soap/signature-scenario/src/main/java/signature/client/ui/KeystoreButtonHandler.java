@@ -1,4 +1,4 @@
-package client.ui;
+package signature.client.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
