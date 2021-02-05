@@ -10,7 +10,7 @@ public class WSClient {
     	// and setting a custom truststore like this would not be needed
         System.setProperty("javax.net.ssl.trustStore", "src/main/resources/ssl-trust.jks");
         System.setProperty("javax.net.ssl.trustStorePassword", "Test1234");
-        
+
     	HelloWorldService service = new HelloWorldService();
     	HelloWorldPortType port = service.getHelloWorldPort();
     	
@@ -20,7 +20,7 @@ public class WSClient {
     	// second call will reuse the cached token we got from the first call
     	hello(port, "Jane");
     }
-    
+
     public static void hello(HelloWorldPortType port, String name) {
         String resp = port.helloWorld(name);
 

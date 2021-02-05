@@ -13,6 +13,8 @@
 		<module>service-hok</module>
 		<module>service-bearer</module>
 		<module>system-user-scenario</module>
+		<module>system-user-scenario-dotnet</module>
+		<module>system-user-scenario-java</module>
 		<module>bootstrap-scenario</module>
 		<module>signature-scenario</module>
 	</modules>

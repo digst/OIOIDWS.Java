@@ -21,7 +21,7 @@
 		</cxf:features>
 	</cxf:bus>
 
-	<jaxws:client name="{http://www.example.org/contract/HelloWorld}HelloWorldPort" createdFromAPI="true">
+	<jaxws:client name="{http://tempuri.org/}SoapBinding_IHelloWorld" createdFromAPI="true">
 		<jaxws:properties>
 			<entry key="ws-security.sts.applies-to" value="https://wsp.itcrew.dk" />
 			<entry key="ws-security.signature.username" value="oio idws java ref. wsc (funktionscertifikat)" />
@@ -33,7 +33,7 @@
 			<entry key="ws-security.is-bsp-compliant" value="false" />
 
 			<entry key="ws-security.sts.client">
-				<bean class="client.sts.DigstSTSClient">
+				<bean id="stsClient" class="client.sts.DigstSTSClient">
 					<constructor-arg ref="cxf" />
 
 					<property name="wsdlLocation" value="sts.wsdl" />

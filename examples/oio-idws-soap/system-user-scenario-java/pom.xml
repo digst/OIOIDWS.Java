@@ -5,8 +5,8 @@
 		<artifactId>reference-soap-parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>cxf-wsc-oioidws-system</artifactId>
-	<name>CXF WS Consumer for System User Scenario (OIOIDWS)</name>
+	<artifactId>cxf-wsc-oioidws-system-java</artifactId>
+	<name>CXF WS Consumer for System User Scenario to dotnet WSP (OIOIDWS)</name>
 	<packaging>jar</packaging>
 
 	<build>
@@ -15,10 +15,45 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+						<version>1.1.1</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<configuration>
+							<sourceRoot>
+								${basedir}/target/generated-sources
+							</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<wsdl>
+										${basedir}/src/main/resources/HelloWorld-Hok.wsdl
+									</wsdl>
+									<wsdlLocation>classpath:HelloWorld-Hok.wsdl</wsdlLocation>
+								</wsdlOption>
+							</wsdlOptions>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>dk.gov.oio.idws</groupId>
+			<artifactId>cxf-wsc-oioidws-system</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
