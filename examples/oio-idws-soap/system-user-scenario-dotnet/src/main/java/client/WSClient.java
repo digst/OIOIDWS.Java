@@ -13,21 +13,17 @@ public class WSClient {
 
         HelloWorld service = new HelloWorld();
         IHelloWorld port = service.getSoapBindingIHelloWorld();
-        port.helloNone("adsf");
-//
 
-        //String response = port.helloNone("John");
-//
-//        // first call will also call the STS
-//    	hello(port, "John");
-//
-//    	// second call will reuse the cached token we got from the first call
-//    	hello(port, "Jane");
+        // first call will also call the STS
+    	hello(port, "John");
+
+    	// second call will reuse the cached token we got from the first call
+    	hello(port, "Jane");
     }
 
     public static void hello(IHelloWorld port, String name) {
-//        String resp = port.helloNone(name);
-//
-//        System.out.println(resp);
+        String resp = port.helloSign(name);
+
+        System.out.println(resp);
     }
 }
