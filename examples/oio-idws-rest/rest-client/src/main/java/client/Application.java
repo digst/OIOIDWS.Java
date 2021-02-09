@@ -26,6 +26,9 @@ public class Application implements CommandLineRunner {
 	@Autowired
 	private RestTemplate restTemplate;
 
+	private static ResponseEntity<String> restServiceResponse;
+	private static String requestUrl = "https://localhost:8443/api/hello?name=John";
+
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
@@ -40,9 +43,17 @@ public class Application implements CommandLineRunner {
 		headers.add("Authorization", "Holder-of-key " + accessToken.getToken());
 
 		// call service
-		ResponseEntity<String> restServicResponse = restTemplate.exchange("https://localhost:8443/api/hello?name=John", HttpMethod.GET, new HttpEntity<>("", headers), String.class);
+		restServiceResponse = restTemplate.exchange(requestUrl, HttpMethod.GET, new HttpEntity<>("", headers), String.class);
 
 		// should print out "Hello John"
-		logger.info(restServicResponse.toString());
+		logger.info(restServiceResponse.toString());
+	}
+
+	public static String getRestResponse() {
+		return restServiceResponse.toString();
+	}
+
+	public static void setRequestUrl(String url) {
+		requestUrl = url;
 	}
 }
