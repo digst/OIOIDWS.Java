@@ -21,12 +21,17 @@ import static org.junit.Assert.assertEquals;
 public class RestSignatureScenarioTest {
 
     @Test
-    public void testSignatureScenario() throws IOException {
-        String current = new java.io.File( "." ).getCanonicalPath();
-        System.out.println("Current dir:"+current);
-        String currentDir = System.getProperty("user.dir");
-        System.out.println("Current dir using System:" +currentDir);
+    public void testSignatureScenario_toJavaWsp() {
+        SpringApplication.run(Application.class);
+        String restResponse = Application.getRestResponse();
 
+        assertEquals("Hello John", restResponse);
+    }
+
+    @Test
+    public void testSignatureScenario_toDotNet() {
+        Application.setRequestUrl("https://digst.oioidws.rest.wsp:10002");
+        Application.setTokenUrl("https://digst.oioidws.rest.wsp:10002/accesstoken/issue"); //TODO er dette den rigtige URL? eller er det .as:10001?
         SpringApplication.run(Application.class);
         String restResponse = Application.getRestResponse();
 
