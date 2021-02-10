@@ -29,6 +29,7 @@ public class Application implements CommandLineRunner {
 	private static ResponseEntity<String> restServiceResponse;
 	private static String requestUrl = "https://localhost:8443/api/hello?name=John";
 	private static String tokenUrl = "https://localhost:8443/auth";
+	private static String audience = "https://wsp.itcrew.dk";
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -37,7 +38,7 @@ public class Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		
 		// get the access token
-		AccessToken accessToken = tokenFetcher.getAccessToken("https://wsp.itcrew.dk", tokenUrl);
+		AccessToken accessToken = tokenFetcher.getAccessToken(audience, tokenUrl);
 
 		// setup request Authorization header
 		HttpHeaders headers = new HttpHeaders();
@@ -59,5 +60,7 @@ public class Application implements CommandLineRunner {
 	}
 
 	public static void setTokenUrl(String tUrl) { tokenUrl = tUrl; }
+
+	public static void setAudience(String aud) { audience = aud; }
 
 }
