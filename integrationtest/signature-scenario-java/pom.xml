@@ -11,23 +11,9 @@
     </parent>
 
     <groupId>dk.gov.oio.idws</groupId>
-    <artifactId>soap-dotnet-integrationtest</artifactId>
+    <artifactId>signature-scenario-java-integrationtest</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>dk.gov.oio.idws</groupId>
-            <artifactId>cxf-wsc-oioidws-system</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>dk.gov.oio.idws</groupId>
-            <artifactId>cxf-wsc-oioidws-system-dotnet</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>dk.gov.oio.idws</groupId>
             <artifactId>cxf-wsc-oioidws-signature</artifactId>

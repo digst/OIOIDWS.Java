@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>dk.gov.oio.idws</groupId>
-    <artifactId>soap-java-integrationtest</artifactId>
+    <artifactId>system-user-dotnet-integrationtest</artifactId>
 
     <dependencies>
         <dependency>
@@ -23,7 +23,7 @@
 
         <dependency>
             <groupId>dk.gov.oio.idws</groupId>
-            <artifactId>cxf-wsc-oioidws-system-java</artifactId>
+            <artifactId>cxf-wsc-oioidws-system-dotnet</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
         </dependency>
