@@ -28,7 +28,7 @@ public class TokenFetcher {
 	@Autowired
 	private RestTemplate restTemplate;
 	
-	public AccessToken getAccessToken(String audience) throws Exception {
+	public AccessToken getAccessToken(String audience, String tokenUrl) throws Exception {
 		AccessToken accessToken = accessTokenCache.get(audience);
 
 		if (accessToken == null) {
@@ -44,7 +44,7 @@ public class TokenFetcher {
 			String encodedToken = "saml-token=" + TokenEncoder.encode(samlToken);
 			HttpHeaders headers = new HttpHeaders();
 			headers.add("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-			ResponseEntity<AccessToken> authorizationServiceResponse = restTemplate.exchange("https://localhost:8443/auth", HttpMethod.POST, new HttpEntity<>(encodedToken, headers), AccessToken.class);
+			ResponseEntity<AccessToken> authorizationServiceResponse = restTemplate.exchange(tokenUrl, HttpMethod.POST, new HttpEntity<>(encodedToken, headers), AccessToken.class);
 			accessToken = authorizationServiceResponse.getBody();
 
 			accessTokenCache.put(audience, accessToken);
