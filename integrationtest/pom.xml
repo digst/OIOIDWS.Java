@@ -7,8 +7,10 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <modules>
-        <module>soap-java</module>
-        <module>soap-dotnet</module>
+        <module>system-user-java</module>
+        <module>system-user-dotnet</module>
+        <module>signature-scenario-java</module>
         <module>rest</module>
+        <module>bootstrap</module>
     </modules>
 </project>

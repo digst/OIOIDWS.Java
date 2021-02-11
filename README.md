@@ -4,6 +4,13 @@ When cloning the project to a Windows machine, make sure to add the flag
 
 to ensure that linebreaks are preserved correctly in the shell scripts (Thanks Jonathan)
 
+#Building locally
+
+The integrations tests must be skipped because, they need various java and .net WSPs running.
+So to build locally do:
+
+`mvn clean install -DskipTests`
+
 #Examples
 
 ##OIO-IDWS-SOAP

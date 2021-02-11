@@ -26,11 +26,11 @@
 		<property name="properties">
 			<map>
 				<!-- this is used to sign the request to the STS -->
-				<entry key="ws-security.signature.username" value="java ref. test (funktionscertifikat)" />
+				<entry key="ws-security.signature.username" value="oio idws java ref. wsc (funktionscertifikat)" />
 				<entry key="ws-security.signature.properties" value="client.properties" />
 				<entry key="ws-security.asymmetric.signature.algorithm" value="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
 
-				<entry key="ws-security.sts.token.username" value="java ref. test (funktionscertifikat)" />
+				<entry key="ws-security.sts.token.username" value="oio idws java ref. wsc (funktionscertifikat)" />
 				<entry key="ws-security.sts.token.properties" value="client.properties" />
 				<entry key="ws-security.callback-handler" value="client.callback.ClientCallbackHandler" />
 
