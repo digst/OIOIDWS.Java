@@ -4,20 +4,20 @@ When cloning the project to a Windows machine, make sure to add the flag
 
 to ensure that linebreaks are preserved correctly in the shell scripts (Thanks Jonathan)
 
-#Building locally
+# Building locally
 
 The integrations tests must be skipped because, they need various java and .net WSPs running.
 So to build locally do:
 
 `mvn clean install -DskipTests`
 
-#Examples
+# Examples
 
-##OIO-IDWS-SOAP
+## OIO-IDWS-SOAP
 
-###Signature Case
+### Signature Case
 
-####Application
+#### Application
 The swing application can be run from Idea. Ensure that the workspace is set to D:\Projects\OIOIDWS.Java\examples\oio-idws-soap\signature-scenario subfolder (talking your specific repo).
 
 To make a successfull run you need to:
@@ -36,11 +36,11 @@ To make a successfull run you need to:
    Response from service: Hello Jane
    ```
 
-####Unit test
+#### Unit test
 
 The unit test resembles the application behavior. It also needs the service-bearer service to be running.
 
-####Troubleshooting
+#### Troubleshooting
 
 If the unit test and/or application does not work. One of the following things might be the reason:
 
