@@ -29,7 +29,8 @@ public class RestSignatureScenarioTest {
         SpringApplication.run(Application.class);
         String restResponse = Application.getRestResponse();
 
-        assertEquals("Hello John", restResponse);
+        assertTrue(restResponse.contains("200"));
+        assertTrue(restResponse.contains("Hello John"));
     }
 
     //For local testing run Digst.OioIdws.Rest.Examples.ServerAndASCombined
