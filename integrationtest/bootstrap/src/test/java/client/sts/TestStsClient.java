@@ -11,7 +11,6 @@ import java.nio.charset.Charset;
  */
 public class TestStsClient extends DigstSTSClient {
 
-    //TODO change to non-static by using applicationContext.getbean...
     private static String bootStrapToken;
 
     public TestStsClient(Bus b) {
