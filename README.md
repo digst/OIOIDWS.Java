@@ -26,7 +26,7 @@ To make a successfull run you need to:
 `examples/oio-idws-soap/service-bearer> mvn clean install tomcat7:run-war`
 
 2. Start the application by right-clicking examples/oio-idws-soap/signature-scenario/src/main/java/client/Application.java in Idea and selecting run Application.main. 
-3. Click load `Open Keystore` and select `examples/test-moces.pfx`. Enter password `Test1234`
+3. Click load `Open Keystore` and select `examples/oioidwsmoces.p12`. Enter password `Test1234`
 4. Click `Run`
 5. Observe the following output in the Application:
    ```
