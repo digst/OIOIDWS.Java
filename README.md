@@ -4,20 +4,20 @@ When cloning the project to a Windows machine, make sure to add the flag
 
 to ensure that linebreaks are preserved correctly in the shell scripts (Thanks Jonathan)
 
-#Building locally
+# Building locally
 
 The integrations tests must be skipped because, they need various java and .net WSPs running.
 So to build locally do:
 
 `mvn clean install -DskipTests`
 
-#Examples
+# Examples
 
-##OIO-IDWS-SOAP
+## OIO-IDWS-SOAP
 
-###Signature Case
+### Signature Case
 
-####Application
+#### Application
 The swing application can be run from Idea. Ensure that the workspace is set to D:\Projects\OIOIDWS.Java\examples\oio-idws-soap\signature-scenario subfolder (talking your specific repo).
 
 To make a successfull run you need to:
@@ -36,11 +36,11 @@ To make a successfull run you need to:
    Response from service: Hello Jane
    ```
 
-####Unit test
+#### Unit test
 
 The unit test resembles the application behavior. It also needs the service-bearer service to be running.
 
-####Troubleshooting
+#### Troubleshooting
 
 If the unit test and/or application does not work. One of the following things might be the reason:
 
@@ -77,17 +77,17 @@ To import the certificate into
 1. `cd signature-scenario`
 2. `/c/tools/openjdk-8u232-b09/bin/keytool.exe -import -alias "eid java test (funktionscertifikat)" -file eid.cer  -keystore src/main/resources/trust.jks`
 
-#Running all Integration Tests
+# Running all Integration Tests
 
 `mvn clean install` in root folder
 
-##Run signature system user case test (java WSC, java WSP):
+## Run signature system user case test (java WSC, java WSP):
 
-###Start the service-hok WSP
+### Start the service-hok WSP
 `cd examples/oio-idws-soap/service-hok`
 `mvn tomcat7:run-war`
 
-###Run test
+### Run test
 in another terminal:
 goto folder
 
@@ -96,38 +96,38 @@ cd integrationtest\system-user-java
 
 stop the service-hok from before
 
-##Run signature system user case test (java WSC, .Net WSP):
+## Run signature system user case test (java WSC, .Net WSP):
 
-###Start .Net Wsp
+### Start .Net Wsp
 In the OIOIDWS.dotnet project start the Digst.OioIdws.WspExample
 
 goto folder
 `cd integrationtest\system-user-dotnet`
 `mvn test`
 
-##Run signature bearer case test (Java WSC, Java WSP):
+## Run signature bearer case test (Java WSC, Java WSP):
 
-###Start the service-bearer WSP
+### Start the service-bearer WSP
 `cd examples/oio-idws-soap/service-bearer`
 `mvn tomcat7:run-war`
 
-###Run test
+### Run test
 in another terminal
 `cd integrationtest\signature-scenario-java`
 `mvn test`
 
 stop the service-bearer from above
 
-##Run REST signaure case (Java WSC, Java WSP and Java WSC, .Net WSP)
+## Run REST signaure case (Java WSC, Java WSP and Java WSC, .Net WSP)
 
-###Start the Java REST WSP
+### Start the Java REST WSP
 `cd examples/oio-idws-rest/rest-service`
 `mvn spring-boot:run`
 
-###Start the .Net REST WSP
+### Start the .Net REST WSP
 In the OIOIDWS.dotnet project start the Digst.OioIdws.Rest.Examples.ServerAndASCombined
 
-###Run test
+### Run test
 in another terminal
 `cd integrationtest\rest`
 `mvn test -Dtest=signature.RestSignatureScenarioJavaTest`
