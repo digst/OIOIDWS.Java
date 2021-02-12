@@ -8,10 +8,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.tempuri.IHelloWorld;
 
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class Bootstrap {
     private String BASE = "https://cxf-sp:8095/cxf-sp-ws-consumer/sp/priv1.jsp";
@@ -34,6 +36,11 @@ public class Bootstrap {
         //Assert.assertTrue(pageSource.contains("Hello John"));
 
         TimeUnit.SECONDS.sleep(20);
+
+        //TODO extract bootstrap token as below and call wsps
+        //TestStsClient.setBootStrapToken(bootstrapToken);
+        //callJavaWsp();
+        //callDotnetWsp();
     }
 
     @Test
@@ -55,7 +62,11 @@ public class Bootstrap {
         String bootstrapToken = bootstrapTokenRaw.substring(bootstrapTokenRaw.indexOf("[") + 1, bootstrapTokenRaw.indexOf("]"));
 
         TestStsClient.setBootStrapToken(bootstrapToken);
+        callJavaWsp();
+        callDotnetWsp();
+    }
 
+    private void callJavaWsp() {
         HelloWorldService service = new HelloWorldService();
         HelloWorldPortType port = service.getHelloWorldPort();
 
@@ -65,14 +76,19 @@ public class Bootstrap {
         String serviceResponse = port.helloWorld("John");
 
         assertEquals("Hello John", serviceResponse);
-        /*
+    }
 
+    private void callDotnetWsp() {
         org.tempuri.HelloWorld dotnetService = new org.tempuri.HelloWorld();
         IHelloWorld dotnetPort = dotnetService.getSoapBindingIHelloWorld();
 
-        dotnetPort.helloSign("John");
-        //FIXME HUSKE dotnet wsp cert i trust
-         */
+        //the service creation overwrites the trustStore properties, so we need to set them again.
+        System.setProperty("javax.net.ssl.trustStore", "src/test/resources/ssl-trust.jks");
+        System.setProperty("javax.net.ssl.trustStorePassword", "Test1234");
+
+        String dotnetResponse = dotnetPort.helloSign("John");
+
+        assertTrue(dotnetResponse.contains("Hello Sign John"));
     }
 
     @Before
