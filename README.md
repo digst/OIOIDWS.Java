@@ -76,3 +76,63 @@ To export the certificate from service.pfx do (do keytool list to check if the a
 To import the certificate into 
 1. `cd signature-scenario`
 2. `/c/tools/openjdk-8u232-b09/bin/keytool.exe -import -alias "eid java test (funktionscertifikat)" -file eid.cer  -keystore src/main/resources/trust.jks`
+
+#Running all Integration Tests
+
+`mvn clean install` in root folder
+
+##Run signature system user case test (java WSC, java WSP):
+
+###Start the service-hok WSP
+`cd examples/oio-idws-soap/service-hok`
+`mvn tomcat7:run-war`
+
+###Run test
+in another terminal:
+goto folder
+
+cd integrationtest\system-user-java
+`mvn test`
+
+stop the service-hok from before
+
+##Run signature system user case test (java WSC, .Net WSP):
+
+###Start .Net Wsp
+In the OIOIDWS.dotnet project start the Digst.OioIdws.WspExample
+
+goto folder
+`cd integrationtest\system-user-dotnet`
+`mvn test`
+
+##Run signature bearer case test (Java WSC, Java WSP):
+
+###Start the service-bearer WSP
+`cd examples/oio-idws-soap/service-bearer`
+`mvn tomcat7:run-war`
+
+###Run test
+in another terminal
+`cd integrationtest\signature-scenario-java`
+`mvn test`
+
+stop the service-bearer from above
+
+##Run REST signaure case (Java WSC, Java WSP and Java WSC, .Net WSP)
+
+###Start the Java REST WSP
+`cd examples/oio-idws-rest/rest-service`
+`mvn spring-boot:run`
+
+###Start the .Net REST WSP
+In the OIOIDWS.dotnet project start the Digst.OioIdws.Rest.Examples.ServerAndASCombined
+
+###Run test
+in another terminal
+`cd integrationtest\rest`
+`mvn test -Dtest=signature.RestSignatureScenarioJavaTest`
+`mvn test -Dtest=signature.RestSignatureScenarioDotnetTest`
+
+(you need to run the tests separately since the WSC uses the same port in both tests)
+
+stop the Java and .Net REST WSPs
