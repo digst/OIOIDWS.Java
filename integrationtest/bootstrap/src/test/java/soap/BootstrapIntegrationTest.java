@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class Bootstrap {
+public class BootstrapIntegrationTest {
     private String BASE = "https://cxf-sp:8095/cxf-sp-ws-consumer/sp/priv1.jsp";
     private ChromeDriver driver;
     private WebDriverWait wait;
