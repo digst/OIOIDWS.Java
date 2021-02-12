@@ -1,11 +1,17 @@
 package soap;
+import client.sts.TestStsClient;
+import org.example.contract.helloworld.HelloWorldPortType;
+import org.example.contract.helloworld.HelloWorldService;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.Assert.assertEquals;
 
 public class Bootstrap {
     private String BASE = "https://cxf-sp:8095/cxf-sp-ws-consumer/sp/priv1.jsp";
@@ -48,13 +54,30 @@ public class Bootstrap {
         String bootstrapTokenRaw = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'DiscoveryEPR')]"))).getText();
         String bootstrapToken = bootstrapTokenRaw.substring(bootstrapTokenRaw.indexOf("[") + 1, bootstrapTokenRaw.indexOf("]"));
 
-        TimeUnit.SECONDS.sleep(5);
+        TestStsClient.setBootStrapToken(bootstrapToken);
 
+        HelloWorldService service = new HelloWorldService();
+        HelloWorldPortType port = service.getHelloWorldPort();
+
+        System.setProperty("javax.net.ssl.trustStore", "src/test/resources/ssl-trust.jks");
+        System.setProperty("javax.net.ssl.trustStorePassword", "Test1234");
+
+        String serviceResponse = port.helloWorld("John");
+
+        assertEquals("Hello John", serviceResponse);
+        /*
+
+        org.tempuri.HelloWorld dotnetService = new org.tempuri.HelloWorld();
+        IHelloWorld dotnetPort = dotnetService.getSoapBindingIHelloWorld();
+
+        dotnetPort.helloSign("John");
+        //FIXME HUSKE dotnet wsp cert i trust
+         */
     }
 
     @Before
     public void setUpWebDriver() {
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\tools\\chromedriver.exe");
 
         ChromeOptions chromeOptions = new ChromeOptions();
         //TODO: Enable headless for TestBootstrapScenario()
