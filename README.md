@@ -150,6 +150,10 @@ method of the integrationtest/bootstrap/src/test/java/soap/BootstrapIntegrationT
 ### Start .Net Wsp
 In the OIOIDWS.dotnet project start the Digst.OioIdws.WspExample
 
+### Start the Bootstrap web
+`cd examples/oio-idws-soap/bootstrap-scenario`
+`mvn tomcat7:run-war`
+
 ### Run test
 in another terminal
 `cd integrationtest\boostrap`
