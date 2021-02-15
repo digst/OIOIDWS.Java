@@ -25,18 +25,37 @@
 		<property name="encryptionKeyTransportAlgo"
 				  value="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
 		<property name="encryptionSymmetricKeyAlgo"
-				  value="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
-	</bean>
+				  value="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+	</bean-->
 
-	<bean id="xmlEncOutHandlerWithProps" class="org.apache.cxf.rs.security.xml.XmlEncOutInterceptor">
+	<!--bean id="xmlEncOutHandlerWithProps" class="org.apache.cxf.rs.security.xml.XmlEncOutInterceptor">
 		<property name="encryptionProperties" ref="encProps"/>
 	</bean-->
 
-	<bean id="xmlEncInHandlerWithProps" class="org.apache.cxf.rs.security.xml.XmlEncInHandler">
+	<!--bean id="xmlEncInHandlerWithProps" class="org.apache.cxf.rs.security.xml.XmlEncInHandler">
 		<property name="encryptionProperties" ref="encProps"/>
-	</bean>
+	</bean-->
+
+	<!--bean id="inbound-logging" class="org.apache.cxf.interceptor.LoggingInInterceptor" />
+	<bean id="outbound-logging" class="org.apache.cxf.interceptor.LoggingOutInterceptor" />
+
+	<bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor" id="inbound-security">
+		<constructor-arg>
+			<map>
+				<entry key="action" value="Timestamp Signature Encrypt"/>
+				<entry key="signaturePropFile" value="client.properties"/>
+				<entry key="decryptionPropFile" value="encryption.properties"/>
+				<entry key="passwordCallbackClass" value="client.callback.ClientCallbackHandler"/>
+			</map>
+		</constructor-arg>
+	</bean-->
 
 	<jaxws:client name="{http://tempuri.org/}SoapBinding_IHelloWorld" createdFromAPI="true">
+
+		<!--jaxws:inInterceptors>
+			<ref bean="inbound-security" />
+		</jaxws:inInterceptors-->
+
 		<jaxws:properties>
 			<entry key="ws-security.sts.applies-to" value="https://wsp.oioidws-net.dk" />
 			<entry key="ws-security.signature.username" value="oio idws java ref. wsc (funktionscertifikat)" />
@@ -44,6 +63,7 @@
 			<entry key="ws-security.encryption.username" value="server" />
 			<entry key="ws-security.encryption.properties" value="encryption.properties" />
 			<entry key="ws-security.callback-handler" value="client.callback.ClientCallbackHandler" />
+			<!--entry key="ws-security.validate.token" value="false" /-->
 
 			<!-- the response from the STS is not BSP 1.1 compliant (missing c14n transform in the signature) -->
 			<entry key="ws-security.is-bsp-compliant" value="false" />
