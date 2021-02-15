@@ -21,11 +21,28 @@
 		</cxf:features>
 	</cxf:bus>
 
+	<!--bean id="encProps" class="org.apache.cxf.rs.security.xml.EncryptionProperties">
+		<property name="encryptionKeyTransportAlgo"
+				  value="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+		<property name="encryptionSymmetricKeyAlgo"
+				  value="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+	</bean>
+
+	<bean id="xmlEncOutHandlerWithProps" class="org.apache.cxf.rs.security.xml.XmlEncOutInterceptor">
+		<property name="encryptionProperties" ref="encProps"/>
+	</bean-->
+
+	<bean id="xmlEncInHandlerWithProps" class="org.apache.cxf.rs.security.xml.XmlEncInHandler">
+		<property name="encryptionProperties" ref="encProps"/>
+	</bean>
+
 	<jaxws:client name="{http://tempuri.org/}SoapBinding_IHelloWorld" createdFromAPI="true">
 		<jaxws:properties>
 			<entry key="ws-security.sts.applies-to" value="https://wsp.oioidws-net.dk" />
 			<entry key="ws-security.signature.username" value="oio idws java ref. wsc (funktionscertifikat)" />
 			<entry key="ws-security.signature.properties" value="client.properties" />
+			<entry key="ws-security.encryption.username" value="server" />
+			<entry key="ws-security.encryption.properties" value="encryption.properties" />
 			<entry key="ws-security.callback-handler" value="client.callback.ClientCallbackHandler" />
 
 			<!-- the response from the STS is not BSP 1.1 compliant (missing c14n transform in the signature) -->
