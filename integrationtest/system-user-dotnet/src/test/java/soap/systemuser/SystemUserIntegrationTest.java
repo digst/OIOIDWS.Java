@@ -18,8 +18,10 @@ public class SystemUserIntegrationTest {
         HelloWorld service = new HelloWorld();
         IHelloWorld port = service.getSoapBindingIHelloWorld();
 
+        //Act
         String response = port.helloNone("John");
 
+        //Assert
         assertTrue(response.contains("Hello None John"));
     }
 
@@ -31,8 +33,10 @@ public class SystemUserIntegrationTest {
         HelloWorld service = new HelloWorld();
         IHelloWorld port = service.getSoapBindingIHelloWorld();
 
+        //Act
         String response = port.helloSign("John");
 
+        //Assert
         assertTrue(response.contains("Hello Sign John"));
     }
 
@@ -45,8 +49,10 @@ public class SystemUserIntegrationTest {
         HelloWorld service = new HelloWorld();
         IHelloWorld port = service.getSoapBindingIHelloWorld();
 
+        //Act
         String response = port.helloEncryptAndSign("John");
 
+        //Assert
         assertTrue(response.contains("Hello Encrypt and Sign John"));
     }
 
