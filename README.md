@@ -83,7 +83,7 @@ To import the certificate into
 
 ## Run signature system user case test (java WSC, java WSP):
 
-### Start the service-hok WSP
+### Start the service-hok Java WSP
 `cd examples/oio-idws-soap/service-hok`
 `mvn tomcat7:run-war`
 
@@ -98,7 +98,7 @@ stop the service-hok from before
 
 ## Run signature system user case test (java WSC, .Net WSP):
 
-### Start .Net Wsp
+### Start .Net WSP
 In the OIOIDWS.dotnet project start the Digst.OioIdws.WspExample
 
 goto folder
@@ -136,3 +136,26 @@ in another terminal
 (you need to run the tests separately since the WSC uses the same port in both tests)
 
 stop the Java and .Net REST WSPs
+
+## Run SOAP bootstrap case (Java WSC, Java WSP and Java WSC, .Net WSP)
+
+NB! Currently you need to enter the password for the MOCES certificate, since it runs against int test with no Test Login.
+Because of this it is currently ignored, so you need to comment out the `@Ignored` statement in the `TestBootstrapScenario_IntTest()` 
+method of the integrationtest/bootstrap/src/test/java/soap/BootstrapIntegrationTest.java class.
+
+### Start the service-hok Java WSP
+`cd examples/oio-idws-soap/service-hok`
+`mvn tomcat7:run-war`
+
+### Start .Net Wsp
+In the OIOIDWS.dotnet project start the Digst.OioIdws.WspExample
+
+### Run test
+in another terminal
+`cd integrationtest\boostrap`
+`mvn test`
+
+NB! The tests are not fully automated yet, so you need to enter the password manually in the GUI. 
+
+stop the Java and .Net WSPs
+

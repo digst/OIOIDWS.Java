@@ -43,6 +43,7 @@ public class BootstrapIntegrationTest {
         //callDotnetWsp();
     }
 
+    @Ignore("To be completed once STS is available in DevTest4")
     @Test
     //TODO: To be replaced with TestBootstrapScenario() once STS is available in DevTest4
     //Use IdPMetadata (old).xml as \OIOIDWS.Java\examples\oio-idws-soap\bootstrap-scenario\oiosaml-config\metadata\IdP\IdPMetadata.xml
