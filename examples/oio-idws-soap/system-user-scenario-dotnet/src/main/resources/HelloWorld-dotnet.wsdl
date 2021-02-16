@@ -284,7 +284,6 @@
                             </sp:Layout>
                             <sp:ProtectTokens/>
                             <sp:IncludeTimestamp/>
-                            <sp:EncryptSignature/>
                             <sp:OnlySignEntireHeadersAndBody/>
                         </wsp:Policy>
                     </sp:AsymmetricBinding>

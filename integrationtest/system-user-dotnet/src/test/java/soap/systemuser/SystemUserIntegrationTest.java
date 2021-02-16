@@ -1,5 +1,6 @@
 package soap.systemuser;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.tempuri.HelloWorld;
 import org.tempuri.IHelloWorld;
@@ -8,7 +9,6 @@ import static org.junit.Assert.assertTrue;
 
 public class SystemUserIntegrationTest {
 
-/*
     @Test
     public void testSystemUserScenarioJavaWscToDotNetWsp_None() {
         //Arrange
@@ -39,10 +39,10 @@ public class SystemUserIntegrationTest {
         assertTrue(response.contains("Hello Sign John"));
     }
 
- */
+
 
     @Test
-    //@Ignore("encryption-part not working")
+    @Ignore("Testing encrypting payload against .net has not been done with success")
     public void testSystemUserScenarioJavaWscToDotNetWsp_EncryptAndSign() {
         //Arrange
         System.setProperty("javax.net.ssl.trustStore", "src/test/resources/ssl-trust.jks");
