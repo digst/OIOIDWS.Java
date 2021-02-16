@@ -29,18 +29,13 @@ public class BootstrapIntegrationTest {
         driver.findElementById("ContentPlaceHolder_MitIdSimulatorControl_txtUsername").sendKeys("Tilo");
         driver.findElementById("ContentPlaceHolder_MitIdSimulatorControl_txtPassword").sendKeys("Test1234");
         driver.findElementById("ContentPlaceHolder_MitIdSimulatorControl_btnSubmit").click();
-        driver.findElement(By.xpath("//a[@href='call_service.jsp']")).click();
 
-        //TODO: Comment in when DevTest4 STS becomes available
-        //String pageSource = driver.getPageSource();
-        //Assert.assertTrue(pageSource.contains("Hello John"));
+        String bootstrapTokenRaw = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'DiscoveryEPR')]"))).getText();
+        String bootstrapToken = bootstrapTokenRaw.substring(bootstrapTokenRaw.indexOf("[") + 1, bootstrapTokenRaw.indexOf("]"));
 
-        TimeUnit.SECONDS.sleep(20);
-
-        //TODO extract bootstrap token as below and call wsps
-        //TestStsClient.setBootStrapToken(bootstrapToken);
-        //callJavaWsp();
-        //callDotnetWsp();
+        TestStsClient.setBootStrapToken(bootstrapToken);
+        callJavaWsp();
+        callDotnetWsp();
     }
 
     @Ignore("To be completed once STS is available in DevTest4")
