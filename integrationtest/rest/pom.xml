@@ -19,6 +19,7 @@
             <groupId>dk.gov.oio.idws</groupId>
             <artifactId>rest-client</artifactId>
             <version>${project.version}</version>
+            <type>pom</type>
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
