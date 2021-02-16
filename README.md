@@ -122,7 +122,7 @@ stop the service-bearer from above
 
 ### Start the Java REST WSP
 `cd examples/oio-idws-rest/rest-service`
-`mvn org.springframework.boot:spring-boot-maven-plugin:run`
+`mvn spring-boot:run`
 
 ### Start the .Net REST WSP
 In the OIOIDWS.dotnet project start the Digst.OioIdws.Rest.Examples.ServerAndASCombined
