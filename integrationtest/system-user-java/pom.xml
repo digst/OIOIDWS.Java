@@ -16,13 +16,6 @@
     <dependencies>
         <dependency>
             <groupId>dk.gov.oio.idws</groupId>
-            <artifactId>cxf-wsc-oioidws-system</artifactId>
-            <version>${project.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>dk.gov.oio.idws</groupId>
             <artifactId>cxf-wsc-oioidws-system-java</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>

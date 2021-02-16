@@ -4,6 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <parent>
         <groupId>dk.gov.oio.idws</groupId>
         <artifactId>integrationtest</artifactId>
@@ -15,6 +28,13 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <dependencies>
+        <dependency>
+            <groupId>dk.gov.oio.idws</groupId>
+            <artifactId>cxf-wsc-oioidws-bootstrap</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <classifier>classes</classifier>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -30,6 +50,12 @@
             <groupId>dk.digst</groupId>
             <artifactId>oiosaml2.java</artifactId>
             <version>2.0.8</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>dk.gov.oio.idws</groupId>
+            <artifactId>cxf-wsc-oioidws-system-dotnet</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
 

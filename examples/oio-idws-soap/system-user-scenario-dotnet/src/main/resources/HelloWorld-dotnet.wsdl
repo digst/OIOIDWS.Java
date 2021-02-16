@@ -191,6 +191,9 @@
                     <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/>
                     <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/>
                 </sp:SignedParts>
+                <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <sp:Body/>
+                </sp:EncryptedParts>
             </wsp:All>
         </wsp:ExactlyOne>
     </wsp:Policy>
