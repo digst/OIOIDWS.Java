@@ -54,8 +54,7 @@ public class SignatureScenarioTest {
 
     private KeyStore getKeystore() throws KeyStoreException, IOException, CertificateException, NoSuchAlgorithmException {
         KeyStore ks = KeyStore.getInstance("PKCS12");
-        //ks.load(new FileInputStream("src/test/resources/client.pfx"), "Test1234".toCharArray());
-        ks.load(this.getClass().getClassLoader().getResourceAsStream("client.pfx"), "Test1234".toCharArray());
+        ks.load(new FileInputStream("../../examples/oioidwsmoces.p12"), "Test1234".toCharArray());
 
         return ks;
     }

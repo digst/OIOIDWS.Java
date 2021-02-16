@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.tempuri.HelloWorld;
 import org.tempuri.IHelloWorld;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class SystemUserIntegrationTest {
@@ -18,8 +17,10 @@ public class SystemUserIntegrationTest {
         HelloWorld service = new HelloWorld();
         IHelloWorld port = service.getSoapBindingIHelloWorld();
 
+        //Act
         String response = port.helloNone("John");
 
+        //Assert
         assertTrue(response.contains("Hello None John"));
     }
 
@@ -31,13 +32,17 @@ public class SystemUserIntegrationTest {
         HelloWorld service = new HelloWorld();
         IHelloWorld port = service.getSoapBindingIHelloWorld();
 
+        //Act
         String response = port.helloSign("John");
 
+        //Assert
         assertTrue(response.contains("Hello Sign John"));
     }
 
+
+
     @Test
-    @Ignore("encryption-part not working")
+    @Ignore("Testing encrypting payload against .net has not been done with success")
     public void testSystemUserScenarioJavaWscToDotNetWsp_EncryptAndSign() {
         //Arrange
         System.setProperty("javax.net.ssl.trustStore", "src/test/resources/ssl-trust.jks");
@@ -45,8 +50,10 @@ public class SystemUserIntegrationTest {
         HelloWorld service = new HelloWorld();
         IHelloWorld port = service.getSoapBindingIHelloWorld();
 
+        //Act
         String response = port.helloEncryptAndSign("John");
 
+        //Assert
         assertTrue(response.contains("Hello Encrypt and Sign John"));
     }
 
