@@ -1,14 +1,5 @@
 package service.saml;
 
-import java.io.ByteArrayInputStream;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.Unmarshaller;
-
-import org.apache.commons.codec.binary.Base64;
 import org.apache.wss4j.common.ext.WSSecurityException;
 import org.apache.wss4j.common.saml.SamlAssertionWrapper;
 import org.apache.wss4j.dom.handler.RequestData;
@@ -18,9 +9,11 @@ import org.opensaml.saml2.core.Assertion;
 import org.opensaml.saml2.core.Attribute;
 import org.opensaml.saml2.core.AttributeStatement;
 import org.opensaml.xml.XMLObject;
-
-import service.bpp.ObjectFactory;
+import service.bpp.BasicPrivilegeProfileDeserializer;
 import service.bpp.PrivilegeListType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DigstSamlAssertionValidator extends SamlAssertionValidator {
 	// Hard-coded expected audience in token. Multiple values can be added if needed
@@ -52,14 +45,10 @@ public class DigstSamlAssertionValidator extends SamlAssertionValidator {
 						for (XMLObject attributeValue : attribute.getAttributeValues()) {
 							if (!attributeValue.isNil()) {
 								String privilege = attributeValue.getDOM().getTextContent();
-								byte[] privilegeBytes = Base64.decodeBase64(privilege);
 
 								try {
-									JAXBContext context = JAXBContext.newInstance(ObjectFactory.class);
-									Unmarshaller unmarsheller = context.createUnmarshaller();
-									JAXBElement<PrivilegeListType> privilegeList = (JAXBElement<PrivilegeListType>) unmarsheller.unmarshal(new ByteArrayInputStream(privilegeBytes));
-
-									AssertionHolder.set(privilegeList.getValue());
+									PrivilegeListType privilegeList = BasicPrivilegeProfileDeserializer.deserializeBase64EncodedPrivilegeList(privilege);
+									AssertionHolder.set(privilegeList);
 								}
 								catch (Exception ex) {
 									throw new WSSecurityException(WSSecurityException.ErrorCode.FAILURE, ex);

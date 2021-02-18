@@ -19,6 +19,7 @@ import org.opensaml.saml2.core.Attribute;
 import org.opensaml.saml2.core.AttributeStatement;
 import org.opensaml.xml.XMLObject;
 
+import service.bpp.BasicPrivilegeProfileDeserializer;
 import service.bpp.ObjectFactory;
 import service.bpp.PrivilegeListType;
 
@@ -53,14 +54,10 @@ public class DigstSamlAssertionValidator extends SamlAssertionValidator {
 						for (XMLObject attributeValue : attribute.getAttributeValues()) {
 							if (!attributeValue.isNil()) {
 								String privilege = attributeValue.getDOM().getTextContent();
-								byte[] privilegeBytes = Base64.decodeBase64(privilege);
 
 								try {
-									JAXBContext context = JAXBContext.newInstance(ObjectFactory.class);
-									Unmarshaller unmarsheller = context.createUnmarshaller();
-									JAXBElement<PrivilegeListType> privilegeList = (JAXBElement<PrivilegeListType>) unmarsheller.unmarshal(new ByteArrayInputStream(privilegeBytes));
-
-									AssertionHolder.set(privilegeList.getValue());
+									PrivilegeListType privilegeList = BasicPrivilegeProfileDeserializer.deserializeBase64EncodedPrivilegeList(privilege);
+									AssertionHolder.set(privilegeList);
 								}
 								catch (Exception ex) {
 									throw new WSSecurityException(WSSecurityException.ErrorCode.FAILURE, ex);
