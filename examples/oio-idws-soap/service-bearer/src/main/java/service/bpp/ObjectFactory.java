@@ -7,21 +7,18 @@ import javax.xml.namespace.QName;
 
 @XmlRegistry
 public class ObjectFactory {
-
-    private final static QName _PrivilegeList_QNAME = new QName("http://itst.dk/oiosaml/basic_privilege_profile", "PrivilegeList");
+    private final static String Bpp101Namespace = "http://itst.dk/oiosaml/basic_privilege_profile";
+    private final static String Bpp12Namespace = "http://digst.dk/oiosaml/basic_privilege_profile";
 
     public ObjectFactory() { }
 
-    public PrivilegeListType createPrivilegeListType() {
-        return new PrivilegeListType();
+    @XmlElementDecl(namespace = Bpp101Namespace, name = "PrivilegeList")
+    public JAXBElement<PrivilegeListType> createBpp101PrivilegeList(PrivilegeListType value) {
+        return new JAXBElement<PrivilegeListType>(new QName(Bpp101Namespace), PrivilegeListType.class, value);
     }
 
-    public PrivilegeGroupType createPrivilegeGroupType() {
-        return new PrivilegeGroupType();
-    }
-
-    @XmlElementDecl(namespace = "http://itst.dk/oiosaml/basic_privilege_profile", name = "PrivilegeList")
-    public JAXBElement<PrivilegeListType> createPrivilegeList(PrivilegeListType value) {
-        return new JAXBElement<PrivilegeListType>(_PrivilegeList_QNAME, PrivilegeListType.class, null, value);
+    @XmlElementDecl(namespace = Bpp12Namespace, name = "PrivilegeList")
+    public JAXBElement<PrivilegeListType> createBpp12PrivilegeList(PrivilegeListType value) {
+        return new JAXBElement<PrivilegeListType>(new QName(Bpp12Namespace), PrivilegeListType.class, value);
     }
 }
