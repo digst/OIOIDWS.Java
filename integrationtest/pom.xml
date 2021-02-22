@@ -16,7 +16,8 @@
         <module>system-user-java</module>
         <module>system-user-dotnet</module>
         <module>signature-scenario-java</module>
-        <module>rest</module>
+        <module>rest-bootstrap</module>
+        <module>rest-signature</module>
         <module>bootstrap</module>
     </modules>
 </project>
