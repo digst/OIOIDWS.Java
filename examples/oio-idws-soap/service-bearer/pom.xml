@@ -117,7 +117,7 @@ These configuration settings should be applied to a real Tomcat (or similar web-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>4.13.1</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
