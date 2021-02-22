@@ -129,7 +129,7 @@ In the OIOIDWS.dotnet project start the Digst.OioIdws.Rest.Examples.ServerAndASC
 
 ### Run test
 in another terminal
-`cd integrationtest\rest`
+`cd integrationtest\rest-signature`
 `mvn test -Dtest=signature.RestSignatureScenarioJavaTest`
 `mvn test -Dtest=signature.RestSignatureScenarioDotnetTest`
 
@@ -140,7 +140,7 @@ stop the Java and .Net REST WSPs
 ## Run SOAP bootstrap case (Java WSC, Java WSP and Java WSC, .Net WSP)
 
 NB! Currently you need to enter the password for the MOCES certificate, since it runs against int test with no Test Login.
-Because of this it is currently ignored, so you need to comment out the `@Ignored` statement in the `TestBootstrapScenario_IntTest()` 
+Because of this it is currently ignored, so you need to comment out the `@Ignore` statement in the `TestBootstrapScenario_IntTest()` 
 method of the integrationtest/bootstrap/src/test/java/soap/BootstrapIntegrationTest.java class.
 
 ### Start the service-hok Java WSP
@@ -162,4 +162,27 @@ in another terminal
 NB! The tests are not fully automated yet, so you need to enter the password manually in the GUI. 
 
 stop the Java and .Net WSPs
+
+## Run REST bootstrap case (Java WSC, Java WSP and Java WSC, .Net WSP)
+
+NB! Currently you need to enter the password for the MOCES certificate, since it runs against int test with no Test Login.
+Because of this it is currently ignored, so you need to comment out the `@Ignore` statement in the `RestBootstrapScenarioDotnetTest` and `RestBootstrapScenarioJavaTest` 
+method of the integrationtest/bootstrap/src/test/java/soap/BootstrapIntegrationTest.java class.
+
+### Start the Java REST WSP
+`cd examples/oio-idws-rest/rest-service`
+`mvn spring-boot:run`
+
+### Start the .Net REST WSP
+In the OIOIDWS.dotnet project start the Digst.OioIdws.Rest.Examples.ServerAndASCombined
+
+### Run test
+in another terminal
+`cd integrationtest\rest-bootstrap`
+`mvn test -Dtest=bootstrap.RestBootstrapScenarioJavaTest`
+`mvn test -Dtest=bootstrap.RestBootstrapScenarioDotnetTest`
+
+(you need to run the tests separately since the WSC uses the same port in both tests)
+
+stop the Java and .Net REST WSPs
 
