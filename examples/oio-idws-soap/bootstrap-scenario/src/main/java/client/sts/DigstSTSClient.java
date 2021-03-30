@@ -53,7 +53,7 @@ public class DigstSTSClient extends STSClient {
 	public Element getActAsToken() throws Exception {
 		// grab the IdP supplied token from the UserAssertionHolder and copy the relevant attribute into the ActAs field in the STS request
 		UserAssertion userAssertion = UserAssertionHolder.get();
-		UserAttribute attribute = userAssertion.getAttribute("urn:liberty:disco:2006-08:DiscoveryEPR");
+		UserAttribute attribute = userAssertion.getAttribute("https://data.gov.dk/model/core/eid/bootstrapToken");
 		byte[] rawAssertion = Base64.decodeBase64(attribute.getValue());
 
 		String actAsToken = new String(rawAssertion, Charset.forName("UTF-8"));
