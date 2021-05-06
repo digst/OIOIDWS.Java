@@ -49,7 +49,7 @@ public class RestBootstrapScenarioJavaTest {
         System.setProperty("webdriver.chrome.driver", "C:\\tools\\chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments(
-                //"--headless",
+                "--headless",
                 "--allow-insecure-localhost",
                 "--ignore-certificate-errors",
                 "--enable-javascript",
@@ -69,7 +69,7 @@ public class RestBootstrapScenarioJavaTest {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ContentPlaceHolder_MitIdSimulatorControl_btnSubmit"))).click();
 
         //Get bootstrap token
-        String bootstrapTokenRaw = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'bootstrapToken')]"))).getText();
+        String bootstrapTokenRaw = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'DiscoveryEPR')]"))).getText();
         bootstrapToken = bootstrapTokenRaw.substring(bootstrapTokenRaw.indexOf("[") + 1, bootstrapTokenRaw.indexOf("]"));
 
         driver.quit();
