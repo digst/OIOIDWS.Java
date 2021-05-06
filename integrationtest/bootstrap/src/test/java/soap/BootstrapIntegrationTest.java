@@ -17,13 +17,11 @@ public class BootstrapIntegrationTest {
     private static ChromeDriver driver;
     private static WebDriverWait wait;
 
-    @Ignore("Enable once STS is available in DevTest4")
     @Test
     public void testBootstrapScenario_JavaWSP() {
         callJavaWsp();
     }
 
-    @Ignore("Enable once STS is available in DevTest4")
     @Test
     public void testBootstrapScenario_DotnetWsp() {
         callDotnetWsp();
