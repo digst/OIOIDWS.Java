@@ -7,6 +7,7 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.namespace.QName;
 
+import client.sts.ScenarioSingleton;
 import org.apache.cxf.binding.soap.SoapMessage;
 import org.apache.cxf.binding.soap.interceptor.AbstractSoapInterceptor;
 import org.apache.cxf.binding.xml.XMLFault;
@@ -32,7 +33,7 @@ public class STSAddressingInterceptor extends AbstractSoapInterceptor {
 		AttributedURIType messageId = new AttributedURIType();
 		AttributedURIType action = new AttributedURIType();
 
-		to.setValue("https://signature.sts.nemlog-in.dk/");
+		to.setValue(ScenarioSingleton.instance.getScenario());
 		action.setValue("http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Issue");
 		messageId.setValue("uuid:" + UUID.randomUUID().toString());
 
