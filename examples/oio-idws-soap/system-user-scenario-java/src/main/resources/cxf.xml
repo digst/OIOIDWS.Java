@@ -23,8 +23,8 @@
 
 	<jaxws:client name="{http://www.example.org/contract/HelloWorld}HelloWorldPort" createdFromAPI="true">
 		<jaxws:properties>
-			<entry key="ws-security.sts.applies-to" value="https://wsp.itcrew.dk" />
-			<entry key="ws-security.signature.username" value="oio idws java ref. wsc (funktionscertifikat)" />
+			<entry key="ws-security.sts.applies-to" value="https://wsp.oioidws-java.dk" />
+			<entry key="ws-security.signature.username" value="oioidws.java wsc - test" />
 			<entry key="ws-security.signature.properties" value="client.properties" />
 			<entry key="ws-security.callback-handler" value="client.callback.ClientCallbackHandler" />
 			<entry key="ws-security.asymmetric.signature.algorithm" value="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
@@ -47,7 +47,7 @@
 					<property name="properties">
 						<map>
 							<!-- this is used to sign the request to the STS -->
-							<entry key="ws-security.signature.username" value="oio idws java ref. wsc (funktionscertifikat)" />
+							<entry key="ws-security.signature.username" value="oioidws.java wsc - test" />
 							<entry key="ws-security.signature.properties" value="client.properties" />
 
 							<!-- this is used to verify the signature on the response from the STS -->
