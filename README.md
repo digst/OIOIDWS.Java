@@ -62,7 +62,8 @@ To import the new do:
 1. `cd <project with old sts certificate>`
 2. `/c/tools/openjdk-8u232-b09/bin/keytool.exe -import -alias sts -file sts.cer -keystore src/main/resources/trust.jks`
 
-The latest certificate can be downloaded from https://test-nemlog-in.dk/Testportal/certifikater/IntegrationTestSigning.zip 
+
+The latest certificate can be downloaded from https://tu.nemlog-in.dk/oprettelse-og-administration-af-tjenester/security-token-service/hjaelp.og.vejledning/integrationstest/
 
 **Ensure service certificate trust in client**
 

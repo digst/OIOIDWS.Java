@@ -17,7 +17,7 @@ public class RestSignatureScenarioJavaTest {
     public void testSignatureScenario_toJavaWsp() {
         Application.setRequestUrl("https://localhost:8443/api/hello?name=John");
         Application.setTokenUrl("https://localhost:8443/auth");
-        Application.setAudience("https://wsp.itcrew.dk");
+        Application.setAudience("https://wsp.oioidws-java.dk");
         SpringApplication.run(Application.class);
         String restResponse = Application.getRestResponse();
 
