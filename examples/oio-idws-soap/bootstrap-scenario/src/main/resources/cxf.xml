@@ -23,7 +23,7 @@
 
 	<jaxws:client name="{http://www.example.org/contract/HelloWorld}HelloWorldPort" createdFromAPI="true">
 		<jaxws:properties>
-			<entry key="ws-security.sts.applies-to" value="https://wsp.itcrew.dk" />
+			<entry key="ws-security.sts.applies-to" value="https://wsp.oioidws-java.dk" />
 			<entry key="ws-security.signature.username" value="oio idws java ref. wsc (funktionscertifikat)" />
 			<entry key="ws-security.signature.properties" value="client.properties" />
 			<entry key="ws-security.callback-handler" value="client.callback.ClientCallbackHandler" />

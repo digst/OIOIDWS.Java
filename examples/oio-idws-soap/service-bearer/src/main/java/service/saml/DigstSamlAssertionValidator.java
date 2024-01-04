@@ -29,7 +29,7 @@ public class DigstSamlAssertionValidator extends SamlAssertionValidator {
 		private static final long serialVersionUID = 1L;
 
 		{
-			add("https://wsp.itcrew.dk");
+			add("https://wsp.oioidws-java.dk");
 		}
 	};
 

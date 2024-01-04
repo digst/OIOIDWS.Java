@@ -39,7 +39,7 @@ import service.security.CertificateHelper;
 @RestController
 public class AuthorizationService {
 	private static final Logger logger = Logger.getLogger(AuthorizationService.class);
-	private static final String allowedAudience = "https://wsp.itcrew.dk";
+	private static final String allowedAudience = "https://wsp.oioidws-java.dk";
 
 	@Resource(name = "accessTokenCache")
 	private Map<String, SamlAssertionWrapper> accessTokenCache;

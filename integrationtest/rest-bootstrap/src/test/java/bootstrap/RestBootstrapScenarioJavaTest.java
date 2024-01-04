@@ -32,7 +32,7 @@ public class RestBootstrapScenarioJavaTest {
         String bootstrapBase64 = bootstrapToken;
         Application.setRequestUrl("https://localhost:8443/api/hello?name=John");
         Application.setTokenUrl("https://localhost:8443/auth");
-        Application.setAudience("https://wsp.itcrew.dk");
+        Application.setAudience("https://wsp.oioidws-java.dk");
         ScenarioSingleton.instance.setScenario("https://bootstrap.sts.nemlog-in.dk/");
 
         TestStsClient.setBootStrapToken(bootstrapBase64);

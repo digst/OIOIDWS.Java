@@ -53,7 +53,7 @@
 		</jaxws:outInterceptors>
 
 		<jaxws:properties>
-			<entry key="ws-security.sts.applies-to" value="https://wsp.itcrew.dk" />
+			<entry key="ws-security.sts.applies-to" value="https://wsp.oioidws-java.dk" />
 			<entry key="ws-security.signature.username" value="java ref. test (funktionscertifikat)" />
 			<entry key="ws-security.signature.properties" value="client.properties" />
 			<entry key="ws-security.callback-handler" value="client.callback.ClientCallbackHandler" />
