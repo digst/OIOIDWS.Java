@@ -97,7 +97,6 @@
 	</build>
 
 	<modules>
-		<module>lbsb</module>
 		<module>oio-idws-soap</module>
 		<module>oio-idws-rest</module>
 	</modules>
